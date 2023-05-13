@@ -47,9 +47,10 @@ const tarek: NormalUser = {
 }
 const user1 = getUser(m_sa)
 const user2 = getUser(tarek)
-console.log(user1, user2)
+// console.log(user1, user2)
 
-//gurd of instance: class and class er instance ke gurd kore, instance check kore
+//gurd of instance: class and class er instance ke gurd kore, instance check kore sei nirdisto instance er method/property guluke access korte pari
+//type ke gurd kore instance er method/property guluke access korte pari
 class Animal1 {
     name: string;
     species: string;
@@ -98,7 +99,31 @@ function getAnimalMethod(animal: Animal1): string {
 
 const catMethod = getAnimalMethod(cat)
 const dogMethod = getAnimalMethod(dog)
-console.log(catMethod, dogMethod)
+// console.log(catMethod, dogMethod) 
+
+// modern syntex by type checking by function 
+// type cheking function
+// function isDog(animal: Animal): animal is Dog {
+//     return animal instanceof Dog
+// }
+// function isCat(animal: Animal): animal is Cat {
+//     return animal instanceof Cat
+// }
+
+// function getAnimalMethod2(animal: Animal1) {
+//     if (isDog(animal)) {
+//         return animal.dogBarking('bark')
+//     }
+//     else if (isCat) {
+//         return animal.catMeawing('meaw')
+//     }
+//     else {
+//         return animal.makeSound('Tiger')
+//     }
+// }
+
+// getAnimalMethod2(dog)
+// getAnimalMethod2(cat)
 
 
 
