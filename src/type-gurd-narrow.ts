@@ -30,6 +30,7 @@ type User = AdminUser | NormalUser
 function getUser(user: User): string {
     if ('role' in user) {
         //ekhane check kora hocce user ze type diye toiree hoice tar moddhye role property ache kina
+        //ekhane user.role=admin accesable
         return `I am an admin user`
     }
     else {
@@ -47,6 +48,57 @@ const tarek: NormalUser = {
 const user1 = getUser(m_sa)
 const user2 = getUser(tarek)
 console.log(user1, user2)
+
+//gurd of instance: class and class er instance ke gurd kore, instance check kore
+class Animal1 {
+    name: string;
+    species: string;
+    constructor(namee: string, spec: string) {
+        this.name = namee
+        this.species = spec
+    }
+    makeSound(anim: string): string {
+        return `${anim} was make sound`
+    }
+}
+
+class Dog extends Animal1 {
+    constructor(namee: string, spec: string) {
+        super(namee, spec)
+    }
+    dogBarking(sound: string): string {
+        return `${this.name} ${sound}ing`
+    }
+}
+
+class Cat extends Animal1 {
+    constructor(namee: string, spec: string) {
+        super(namee, spec)
+    }
+    catMeawing(sound: string): string {
+        return `${this.name} ${sound}ing`
+    }
+}
+
+//make instance with Animal1,Dog,Cat
+const cat = new Cat('Cat', 'German')
+const dog = new Dog('Dog', 'German')
+
+function getAnimalMethod(animal: Animal1): string {
+    if (animal instanceof Dog) {
+        return `${animal.dogBarking('bark')}`
+    }
+    else if (animal instanceof Cat) {
+        return `${animal.catMeawing('meaw')}`
+    }
+    else {
+        return animal.makeSound(animal.name)
+    }
+}
+
+const catMethod = getAnimalMethod(cat)
+const dogMethod = getAnimalMethod(dog)
+console.log(catMethod, dogMethod)
 
 
 
